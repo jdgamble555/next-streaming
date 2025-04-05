@@ -7,7 +7,9 @@ type Todo = {
 
 export const getTodo = async () => {
     const randomTodo = Math.floor(Math.random() * 200) + 1;
-    return await fetch(`https://jsonplaceholder.typicode.com/todos/${randomTodo}`)
+    return await fetch(`https://jsonplaceholder.typicode.com/todos/${randomTodo}`, {
+        cache: 'no-cache'
+    })
         .then(r => r.json()) as Todo;
 };
 
